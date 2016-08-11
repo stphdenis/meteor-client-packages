@@ -1,0 +1,22 @@
+{
+  "name": "meteor-client-packages",
+  "version": "0.0.4",
+  "description": "Base package for all versions of meteor-client-packages-meteor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stphdenis/meteor-client-packages.git"
+  },
+  "keywords": [
+    "meteor",
+    "webpack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stphdenis/meteor-client-packages/issues"
+  },
+  "homepage": "https://github.com/stphdenis/meteor-client-packages#readme"
+}
