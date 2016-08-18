@@ -41,8 +41,8 @@ gulp.task('create-packages', ['clean-packages'], function() {
   for (let moduleName in modules) {
     const module = modules[moduleName];
 
-    const moduleOptions = module.options;
-    const moduleDeps = module.dependencies;
+    const moduleDeps = module.dependencies || [];
+    const moduleGlobalScope = module['global-scope'] || [];
 
     let indexJsString = '\'use strict\';\n';
     for (let moduleDep in moduleDeps) {
@@ -59,10 +59,9 @@ for(var key in pkg) {
 Object.defineProperty(exports, '__esModule', { value: true });
 exports.default = pkg[0];
 `;
-    const globalScope = moduleOptions['global-scope'];
-    if (globalScope.length) {
+    if (moduleGlobalScope.length) {
       indexJsString += `if(__meteor_runtime_config__.PUBLIC_SETTINGS.__global_scope__) {\n`;
-      globalScope.forEach(globalName => {indexJsString += `  globals.${globalName} = pkg.${globalName};\n`;});
+      moduleGlobalScope.forEach(globalName => {indexJsString += `  globals.${globalName} = pkg.${globalName};\n`;});
       indexJsString += `}\n`;
     }
 
