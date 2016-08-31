@@ -1,6 +1,6 @@
 {
   "name": "meteor-client-packages",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Base package for all versions of meteor-client-packages-meteor",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
