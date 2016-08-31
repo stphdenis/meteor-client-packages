@@ -51,8 +51,11 @@ gulp.task('create-packages', ['clean-packages'], function() {
     if (moduleName === 'meteor') {
       indexJsString += `require( 'meteor-client-packages/meteor-runtime-config');\n`;
     }
-    indexJsString += `require( '../__lib__/${moduleName}');
-var pkg = Package['${moduleName}'];
+    indexJsString += `require( '../__lib__/${moduleName}');\n`
+    if(module.styles) {
+      indexJsString += `require( '../__lib__/${moduleName}/${module.styles}');\n`;
+    }
+    indexJsString += `var pkg = Package['${moduleName}'];
 for(var key in pkg) {
   exports[key] = pkg[key];
 }
